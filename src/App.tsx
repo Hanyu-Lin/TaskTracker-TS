@@ -1,32 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 // custom components
 import CustomForm from './components/CustomForm';
+import TaskList from './components/TaskList';
 import { Task } from './components/TaskType';
-interface State {
-  tasks: Task[],
-}
 
-class App extends Component<{}, State> {
-  state: State = {
-    tasks: [],
-  };
+
+class App extends React.Component {
+  state = {
+    tasks: [] as Task[]
+  }
 
   addTask = (task: Task) => {
-    this.setState(prevState => ({ tasks: [...prevState.tasks, task] }));
+    this.setState({tasks : [this.state.tasks,task]});
   }
 
   render() {
-    const { tasks } = this.state;
     return (
       <div className="container">
         <header>
           <h1>My Todo List Tracker</h1>
         </header>
-        <CustomForm addTask={this.addTask} />
-        {/* {tasks.length > 0 && <TaskList tasks={tasks} />} */}
+        <CustomForm addTask={this.addTask} /> 
+        {this.state.tasks && <TaskList tasks={this.state.tasks} />}
       </div>
-    );
+    )
   }
 }
 
