@@ -17,6 +17,11 @@ class App extends React.Component {
   deleteTask = (id: string) => {
     this.setState({tasks : this.state.tasks.filter(task => task.id !== id)})
   }
+  toggleTask = (id: string) => {
+    this.setState({tasks : this.state.tasks.map(
+        task => task.id === id ? {...task, checked: !task.checked } : task
+      )})
+  }
 
   render() {
     return (
@@ -29,6 +34,7 @@ class App extends React.Component {
           <TaskList 
             tasks={this.state.tasks} 
             deleteTask ={this.deleteTask}
+            toggleTask ={this.toggleTask}
           />}
       </div>
     )

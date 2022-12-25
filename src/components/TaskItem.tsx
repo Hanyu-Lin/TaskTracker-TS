@@ -12,6 +12,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 interface Props {
   task: Task;
   deleteTask : (id: string) => void;
+  toggleTask : (id: string) => void;
 }
 
 class TaskItem extends React.Component<Props> {
@@ -26,7 +27,7 @@ class TaskItem extends React.Component<Props> {
   }
 
   render() {
-    const { task, deleteTask } = this.props;
+    const { task, deleteTask, toggleTask } = this.props;
 
     return (
       <li className={styles.task}>
@@ -35,7 +36,7 @@ class TaskItem extends React.Component<Props> {
             type="checkbox"
             className={styles.checkbox}
             checked={this.state.isChecked}
-            onChange={this.handleCheckboxChange}
+            onChange={(e) => {this.handleCheckboxChange(e); toggleTask(task.id)}}
             name={task.name}
             id={task.id.toString()}
           />

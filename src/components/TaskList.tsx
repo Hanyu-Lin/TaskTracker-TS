@@ -9,12 +9,14 @@ import { Task } from './TaskType';
 interface Props {
   tasks: Task[];
   deleteTask: (id: string) => void;
+  toggleTask: (id: string) => void;
+
 
 }
 
 class TaskList extends React.Component<Props> {
   render() {
-    const { tasks, deleteTask } = this.props;
+    const { tasks, deleteTask, toggleTask } = this.props;
 
     return (
       <ul className={styles.tasks}>
@@ -23,6 +25,7 @@ class TaskList extends React.Component<Props> {
             key={task.id}
             task={task}
             deleteTask = {deleteTask}
+            toggleTask = {toggleTask}
           />
         ))
         }
