@@ -11,6 +11,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 
 interface Props {
   task: Task;
+  deleteTask : (id: string) => void;
 }
 
 class TaskItem extends React.Component<Props> {
@@ -25,7 +26,7 @@ class TaskItem extends React.Component<Props> {
   }
 
   render() {
-    const { task } = this.props;
+    const { task, deleteTask } = this.props;
 
     return (
       <li className={styles.task}>
@@ -48,6 +49,7 @@ class TaskItem extends React.Component<Props> {
             </p>
           </label>
         </div>
+        {/* edit button */}
         <div className={styles["task-group"]}>
           <button
             className='btn'
@@ -56,11 +58,11 @@ class TaskItem extends React.Component<Props> {
           >
             <PencilSquareIcon width={24} height={24} />
           </button>
-
+          {/* delete button */}
           <button
             className={`btn ${styles.delete}`}
             aria-label={`Delete ${task.name} Task`}
-            // onClick={}
+            onClick={() => deleteTask(task.id)}
           >
             <TrashIcon width={24} height={24} />
           </button>

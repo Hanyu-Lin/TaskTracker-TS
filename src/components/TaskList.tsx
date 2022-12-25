@@ -8,11 +8,13 @@ import { Task } from './TaskType';
 
 interface Props {
   tasks: Task[];
+  deleteTask: (id: string) => void;
+
 }
 
 class TaskList extends React.Component<Props> {
   render() {
-    const { tasks } = this.props;
+    const { tasks, deleteTask } = this.props;
 
     return (
       <ul className={styles.tasks}>
@@ -20,6 +22,7 @@ class TaskList extends React.Component<Props> {
           <TaskItem
             key={task.id}
             task={task}
+            deleteTask = {deleteTask}
           />
         ))
         }
