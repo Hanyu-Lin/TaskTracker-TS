@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { Task } from './TaskType';
+import {v4 as uuidv4} from 'uuid';
 
 interface Props {
   addTask: (task: Task) => void;
@@ -18,7 +19,7 @@ class CustomForm extends Component<Props> {
     addTask({
       name: task,
       checked: false,
-      id: Date.now(),
+      id: uuidv4(),
     });
     this.setState({ task: '' });
   }
