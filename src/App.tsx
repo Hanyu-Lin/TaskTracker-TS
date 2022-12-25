@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   addTask = (task: Task) => {
-    this.setState({tasks : [this.state.tasks,task]});
+    this.setState({tasks : [...this.state.tasks,task]});
   }
 
   render() {
