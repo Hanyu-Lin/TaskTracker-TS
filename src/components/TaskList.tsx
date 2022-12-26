@@ -6,17 +6,18 @@ import TaskItem from './TaskItem';
 import styles from './TaskList.module.css';
 import { Task } from './TaskType';
 
-interface Props {
-  tasks: Task[];
-  deleteTask: (id: string) => void;
-  toggleTask: (id: string) => void;
 
+interface Props {
+  tasks: Task[],
+  deleteTask: (id: string) => void,
+  toggleTask: (id: string) => void,
+  enterEditMode: (task: Task) => void
 
 }
 
 class TaskList extends React.Component<Props> {
   render() {
-    const { tasks, deleteTask, toggleTask } = this.props;
+    const { tasks, deleteTask, toggleTask, enterEditMode } = this.props;
 
     return (
       <ul className={styles.tasks}>
@@ -26,6 +27,7 @@ class TaskList extends React.Component<Props> {
             task={task}
             deleteTask = {deleteTask}
             toggleTask = {toggleTask}
+            enterEditMode = {enterEditMode}
           />
         ))
         }

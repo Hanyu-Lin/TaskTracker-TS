@@ -10,9 +10,10 @@ import { PencilSquareIcon  } from '@heroicons/react/24/outline';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
 interface Props {
-  task: Task;
-  deleteTask : (id: string) => void;
-  toggleTask : (id: string) => void;
+  task: Task,
+  deleteTask : (id: string) => void,
+  toggleTask : (id: string) => void,
+  enterEditMode: (task: Task) => void
 }
 
 class TaskItem extends React.Component<Props> {
@@ -27,7 +28,7 @@ class TaskItem extends React.Component<Props> {
   }
 
   render() {
-    const { task, deleteTask, toggleTask } = this.props;
+    const { task, deleteTask, toggleTask, enterEditMode } = this.props;
 
     return (
       <li className={styles.task}>
@@ -55,7 +56,7 @@ class TaskItem extends React.Component<Props> {
           <button
             className='btn'
             aria-label={`Update ${task.name} Task`}
-            // onClick={}
+            onClick={() => enterEditMode(task)}
           >
             <PencilSquareIcon width={24} height={24} />
           </button>
