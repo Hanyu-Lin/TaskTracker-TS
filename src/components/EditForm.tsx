@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Task } from './TaskType';
 
 // library imports
@@ -16,19 +16,17 @@ class EditForm extends React.Component<Props> {
   }
 
   componentDidMount() {
-    const closeModalIfEscaped = (e: KeyboardEvent) => {
-      e.key === "Escape" && this.props.closeEditMode();
-    }
-
-    window.addEventListener('keydown', closeModalIfEscaped);
+    window.addEventListener('keydown', this.closeModalIfEscaped);
   }
 
   componentWillUnmount() {
-    const closeModalIfEscaped = (e: KeyboardEvent) => {
-      e.key === "Escape" && this.props.closeEditMode();
-    }
+    window.removeEventListener('keydown', this.closeModalIfEscaped);
+  }
 
-    window.removeEventListener('keydown', closeModalIfEscaped);
+  closeModalIfEscaped = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      this.props.closeEditMode();
+    }
   }
 
   handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
