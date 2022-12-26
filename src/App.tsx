@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // custom components
 import CustomForm from './components/CustomForm';
