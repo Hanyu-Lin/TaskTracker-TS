@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 // custom components
 import CustomForm from './components/CustomForm';
 import TaskList from './components/TaskList';
 import EditForm from './components/EditForm';
 import { Task } from './components/TaskType';
+import  ThemeSwitcher  from './components/ThemeSwitcher';
+
 
 const tempTask: Task = {
   name: "",
@@ -74,6 +76,9 @@ const App = () => {
           toggleTask ={toggleTask}
           enterEditMode={enterEditMode}
         />}
+      <ThemeSwitcher>
+
+      </ThemeSwitcher>
     </div>
   );
 }
