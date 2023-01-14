@@ -76,9 +76,7 @@ const App = () => {
           toggleTask ={toggleTask}
           enterEditMode={enterEditMode}
         />}
-      <ThemeSwitcher>
-
-      </ThemeSwitcher>
+      <ThemeSwitcher/>
     </div>
   );
 }
