@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from './TaskType';
+import { Task } from '../utils/TaskType';
 
 // library imports
 import { CheckIcon } from '@heroicons/react/24/solid';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PlusIcon } from '@heroicons/react/24/solid';
-import { Task } from './TaskType';
+import { Task } from '../utils/TaskType';
 import {v4 as uuidv4} from 'uuid';
 
 interface Props {

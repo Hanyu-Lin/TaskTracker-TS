@@ -4,7 +4,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 import CustomForm from './components/CustomForm';
 import TaskList from './components/TaskList';
 import EditForm from './components/EditForm';
-import { Task } from './components/TaskType';
+import { Task } from './utils/TaskType';
 import  ThemeSwitcher  from './components/ThemeSwitcher';
 
 

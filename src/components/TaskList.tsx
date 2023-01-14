@@ -1,10 +1,10 @@
 // component import
 import React from 'react';
 import TaskItem from './TaskItem';
+import { Task } from '../utils/TaskType';
 
 // styles
 import styles from './TaskList.module.css';
-import { Task } from './TaskType';
 
 
 interface Props {

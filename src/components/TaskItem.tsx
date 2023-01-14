@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from './TaskType';
+import { Task } from '../utils/TaskType';
 
 // styles
 import styles from './TaskItem.module.css';
